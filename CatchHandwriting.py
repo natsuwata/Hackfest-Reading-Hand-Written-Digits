@@ -443,7 +443,10 @@ try:
     local_path=os.getcwd()+ "/Result/"
     #local_file_name = file_name
     print(local_path  + file_name)
-    cv2.imwrite(local_path + file_name, orig)
+    
+    orig_rgb = cv2.cvtColor(orig, cv2.COLOR_BGR2RGB)
+    cv2.imwrite(local_path + file_name, orig_rgb)
+    
     full_path_to_file =os.path.join(local_path, file_name)
     
     service = block_blob_service = BlockBlobService(account_name=account_name, account_key=account_key)
